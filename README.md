@@ -8,16 +8,16 @@
 
 #### 2.1 edgex平台搭建
 
-- 采用docker运行, 参考文档https://docs.edgexfoundry.org/2.3/examples/Ch-ExamplesAddingMQTTDevice/
+采用docker运行, 参考文档https://docs.edgexfoundry.org/2.3/examples/Ch-ExamplesAddingMQTTDevice/
 
-  - ```sh
-    git clone git@github.com:edgexfoundry/edgex-compose.git
-    cd edgex-compose
-    git checkout levski # 本文档使用levski分支，即2.3版本
-    cd compose-builder
-    make gen ds-mqtt mqtt-broker no-secty ui # 使用make gen命令生成docker-compose.yml文件，这里添加了ds-mqtt mqtt-broker ui no-secty镜像，ds-mqtt用于注册默认device-service设备服务，mqtt-broker运行在1883端口作为mqtt代理，no-secty表明以非安全模式运行
-    docker-compose up -d # 拉取镜像，启动服务
-    ```
+```sh
+git clone git@github.com:edgexfoundry/edgex-compose.git
+cd edgex-compose
+git checkout levski # 本文档使用levski分支，即2.3版本
+cd compose-builder
+make gen ds-mqtt mqtt-broker no-secty ui # 使用make gen命令生成docker-compose.yml文件，这里添加了ds-mqtt mqtt-broker ui no-secty镜像，ds-mqtt用于注册默认device-service设备服务，mqtt-broker运行在1883端口作为mqtt代理，no-secty表明以非安全模式运行
+docker-compose up -d # 拉取镜像，启动服务
+```
 
 
 #### 2.2 注册设备
@@ -332,7 +332,7 @@ curl http://localhost:59882/api/v2/device/name/my-custom-device/message \
 - 事实上1883端口中的topic有效负载是如下格式，可以在js脚本中添加`console.log`输出查看
 
 
-```json
+```
 //set message CommandTopic/ResponseTopic的有效负载
 {
   cmd: 'message',
