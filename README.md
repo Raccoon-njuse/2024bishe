@@ -1,41 +1,4 @@
----
-addrlink: ff22cf17-middle
-title: 中期答辩
-hidden: false
-date: 2024-02-12 18:23:43
-updated: 2024-03-16 01:45:36
-tags: edgex
-password: null
-cover: null
-description: null
-categories: [纯纯寄术流, 毕设]
----
-
-## 预计日期 
-
-5.11
-
-## 毕业设计的进度计划
-
-1. 整体开发架构设计
-
-2. 完成EdgeX的前后端搭建
-
-3. 完成MQTT设备服务部署
-
-4. 完成ROS、MQTT服务和EdgeX的连接
-
-5. 完成多个ROS接入管理、信息读取
-
-6. 编写基于ROS API的控制文件
-
-7. 美化前端
-
-8. 传感数据融合、完成自主导航
-
-## 已完成的内容
-
-### 1. 架构设计，见下图
+### 1. 架构设计
 
 ![毕业设架构图](https://picturebed-raccoon.oss-cn-hangzhou.aliyuncs.com/default/%E6%AF%95%E4%B8%9A%E8%AE%BE%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
 
@@ -400,92 +363,6 @@ curl http://localhost:59882/api/v2/device/name/my-custom-device/message \
 - 对于values这种复合命令，59882相当于同时发送了三个CommandTopic, 并且将三个ResponseTopic拼接起来作为json返回
 - 禁止使用脚本越过59882端口直接向MQTT-Broker1883发送CommandTopic和直接尝试从MQTT-Broker1883获取ResponseTopic，这是不符合架构的
 
-
-
-
-### 一些更改host之后的命令，复制用
-```shell
-curl -X PUT -d '{"Int16":"42", "EnableRandomization_Int16":"false"}' http://localhost:59882/api/v2/device/name/Random-Integer-Device/WriteInt16Value
-```
-
-```shell
-curl -X POST \
-  http://localhost:59720/streams \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "sql": "create stream demo() WITH (FORMAT=\"JSON\", TYPE=\"edgex\")"
-  }'
-```
-
-```sh
-curl -X POST \
-	http://localhost:59720/rules \
-	-H 'Content-Type: application/json' \
-	-d '{
-		"id": "rule1",
-		"sql": "SELECT * FROM demo",
-		"actions": [{
-			"mqtt": {
-				"server": "tcp://broker.emqx.io:1883",
-				"topic": "result",
-				"clientId": "demo_001"
-			}
-		},{
-			"log":{}
-		}]
-	}'
-```
-
-```sh
-mosquitto_sub -h broker.emqx.io -t result
-```
-
-```sh
-curl -X POST \
-http://localhost:59720/rules \
--H 'Content-Type: application/json' \
--d '{
-"id": "rule1",
-"sql": "SELECT uint8 FROM demo WHERE uint8 > 20",
-"actions": [
-{
-"rest": {
-"url": "http://edgex-core-command:59882/api/v2/device/name/Random-Boolean-Device/WriteBoolValue",
-"method": "put",
-"dataTemplate": "{\"Bool\":\"true\", \"EnableRandomization_Bool\":\"true\"}",
-"sendSingle": true
-}
-},
-{
-"log":{}
-}
-]
-}'
-```
-
-```sh
-curl -X POST \
-http://localhost:59720/rules \
--H 'Content-Type: application/json' \
--d '{
-"id": "rule2",
-"sql": "SELECT avg(int8) AS avg_int8 FROM demo WHERE int8 != nil GROUP BY TUMBLINGWINDOW(ss, 20) HAVING avg(int8) > 0",
-"actions": [
-{
-"rest": {
-"url": "http://edgex-core-command:59882/api/v2/device/name/Random-Boolean-Device/WriteBoolValue",
-"method": "put",
-"dataTemplate": "{\"Bool\":\"false\", \"EnableRandomization_Bool\":\"false\"}",
-"sendSingle": true
-}
-},
-{
-"log":{}
-}
-]
-}'
-```
-
 ## 刘海涛圣经
 
 除了系统架构图，别的都不能一样
@@ -499,3 +376,5 @@ http://localhost:59720/rules \
 各种类图多画
 
 不能GPT
+
+UI好看点
