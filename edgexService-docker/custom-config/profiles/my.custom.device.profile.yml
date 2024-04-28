@@ -1,0 +1,166 @@
+name: my-ros
+manufacturer: iot
+description: Test ros api
+model: MQTT-DEVICE
+labels: [mqtt, test]
+deviceResources:
+- description: RUN COMMAND
+  name: forward
+  isHidden: false
+  tag: ""
+  properties:
+    valueType: Bool
+    readWrite: W
+    units: ""
+    minimum: ""
+    maximum: ""
+    defaultValue: ""
+    mask: ""
+    shift: ""
+    scale: ""
+    offset: ""
+    base: ""
+    assertion: ""
+    mediaType: ""
+  attributes: {}
+
+- description: BACK COMMAND
+  name: backward
+  isHidden: false
+  tag: ""
+  properties:
+    valueType: Bool
+    readWrite: W
+    units: ""
+    minimum: ""
+    maximum: ""
+    defaultValue: ""
+    mask: ""
+    shift: ""
+    scale: ""
+    offset: ""
+    base: ""
+    assertion: ""
+    mediaType: ""
+  attributes: {}
+
+- description: Left COMMAND
+  name: left
+  isHidden: false
+  tag: ""
+  properties:
+    valueType: Bool
+    readWrite: W
+    units: ""
+    minimum: ""
+    maximum: ""
+    defaultValue: ""
+    mask: ""
+    shift: ""
+    scale: ""
+    offset: ""
+    base: ""
+    assertion: ""
+    mediaType: ""
+  attributes: {}
+
+- description: RIGHT COMMAND
+  name: right
+  isHidden: false
+  tag: ""
+  properties:
+    valueType: Bool
+    readWrite: W
+    units: ""
+    minimum: ""
+    maximum: ""
+    defaultValue: ""
+    mask: ""
+    shift: ""
+    scale: ""
+    offset: ""
+    base: ""
+    assertion: ""
+    mediaType: ""
+  attributes: {}
+
+- description: STOP COMMAND
+  name: stop
+  isHidden: false
+  tag: ""
+  properties:
+    valueType: Bool
+    readWrite: W
+    units: ""
+    minimum: ""
+    maximum: ""
+    defaultValue: ""
+    mask: ""
+    shift: ""
+    scale: ""
+    offset: ""
+    base: ""
+    assertion: ""
+    mediaType: ""
+  attributes: {}
+
+- description: VELOCITY COMMAND
+  name: velocity
+  isHidden: false
+  tag: ""
+  properties:
+    valueType: Float64
+    readWrite: RW
+    units: ""
+    minimum: ""
+    maximum: ""
+    defaultValue: ""
+    mask: ""
+    shift: ""
+    scale: ""
+    offset: ""
+    base: ""
+    assertion: ""
+    mediaType: ""
+  attributes: {}
+
+- description: CAMERA COMMAND
+  name: cameraUrl
+  isHidden: false
+  tag: ""
+  properties:
+    valueType: String
+    readWrite: R
+    units: ""
+    minimum: ""
+    maximum: ""
+    defaultValue: ""
+    mask: ""
+    shift: ""
+    scale: ""
+    offset: ""
+    base: ""
+    assertion: ""
+    mediaType: ""
+  attributes: {}
+  
+- description: DOT CLOUD COMMAND
+  name: dotCloud
+  isHidden: false
+  tag: ""
+  properties:
+    valueType: String
+    readWrite: R
+    units: ""
+    minimum: ""
+    maximum: ""
+    defaultValue: ""
+    mask: ""
+    shift: ""
+    scale: ""
+    offset: ""
+    base: ""
+    assertion: ""
+    mediaType: ""
+  attributes: {}
+deviceCommands: []

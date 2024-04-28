@@ -1,0 +1,14 @@
+ # docker-compose.override.yml
+
+ version: '3.7'
+
+ services:
+     device-mqtt:
+        environment:
+          DEVICE_DEVICESDIR: /custom-config/devices
+          DEVICE_PROFILESDIR: /custom-config/profiles
+          MQTTBROKERINFO_INCOMINGTOPIC: "incoming/data/#"
+          MQTTBROKERINFO_RESPONSETOPIC: "command/response/#"
+          MQTTBROKERINFO_USETOPICLEVELS: "true"
+        volumes:
+        - ./custom-config:/custom-config
