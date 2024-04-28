@@ -2,7 +2,7 @@
 ```sh 
 cd edgexService-docker
 #TODO docker-compose.yml中的core-command和mqtt-broker的ip要换broker机器的ip
-docker-compose -f docekr-compose.yml -f docker-compose.override.yml
+docker-compose -f docekr-compose.yml -f docker-compose.override.yml up -d
 ```
 # 小车启动
 ```sh
